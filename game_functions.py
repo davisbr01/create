@@ -33,7 +33,7 @@ def check_events(ai_settings, screen, ship, bullets):
         elif event.type == pygame.KEYDOWN:
             check_keydown_events(event, ai_settings, screen, ship, bullets)
         elif event.type == pygame.KEYUP:
-            ckeck_keyup_events(event, ship)
+            check_keyup_events(event, ship)
             
 
 def update_screen(ai_settings, screen, ship, bullets):
