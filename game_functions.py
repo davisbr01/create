@@ -2,6 +2,8 @@ import sys
 
 import pygame
 
+from bullet import Bullet
+
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Respond to keypresses."""
     if event.key == pygame.K_RIGHT:
