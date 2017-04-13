@@ -64,8 +64,11 @@ def update_bullets(bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
             
-    # Check for any bullets that have hit aliens.
-    # If so, get rid of the bullet and the alien.
+    check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets)
+    
+def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
+    """Respond to bullet-alien collisions."""
+    # Remove any bullets that have collided.
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     
     if len(aliens) == 0:
@@ -129,3 +132,7 @@ def update_aliens(aliens):
     """
     check_fleet_edges(ai_settings, aliens)
     aliens.update()
+    
+    # Look for alien-ship collisions.
+    if pygame.sprite.spritecollideany(ship, aliens):
+        print("Ship hit!!!")
