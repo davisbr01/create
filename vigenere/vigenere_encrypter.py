@@ -62,6 +62,8 @@ def encrypt(test_word, shift_key):
 
 #method that returns the repeated shift key
 def real_shift_key(test_word, shift_key):
+        test_word = helper_method(test_word)
+        shift_key = helper_method(shift_key)
         num_repeats = int(len(test_word) / len(shift_key)) - 1
         num_remainder = len(test_word) % len(shift_key)
         real_shift_key = shift_key
@@ -72,7 +74,7 @@ def real_shift_key(test_word, shift_key):
 
 #method that button calls so that label can update
 def determinec():
-        text.set(encrypt(helper_method(get_word()), real_shift_key(helper_method(get_word()), helper_method(get_key()))))
+        text.set(encrypt(helper_method(get_word()), real_shift_key(get_word(), get_key())))
 
 button_encrypt = Button(text = "Encrypt!", width = 10, height = 1, command = determinec)
 button_encrypt.place(x = 130, y = 110)
@@ -112,7 +114,7 @@ def decrypt(test_word, shift_key):
         return decrypted_word
 
 def determined():
-        text2.set(decrypt(helper_method(get_decrypt_word()),real_shift_key(helper_method(get_decrypt_word()),helper_method(get_decrypt_key()))))
+        text2.set(decrypt(helper_method(get_decrypt_word()),real_shift_key(get_decrypt_word(),get_decrypt_key())))
 
 button_decrypt = Button(text = "Decrypt!", width = 10, height = 1, command = determined)
 button_decrypt.place(x=130,y=210)
